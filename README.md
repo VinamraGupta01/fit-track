@@ -159,8 +159,6 @@ Project follows separation of concerns:
 
 # 📸 Application Preview
 
-<img width="1892" height="1086" alt="image" src="https://github.com/user-attachments/assets/0a896c00-50a9-4aaf-9b70-7c227ad7e714" />
-
 ## Dashboard
 
 <img width="1895" height="1085" alt="image" src="https://github.com/user-attachments/assets/48b6f2f2-623e-41d9-9289-02af2ee6ff6f" />
