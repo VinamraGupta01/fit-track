@@ -1,225 +1,520 @@
-# Fit Track — Fitness Recovery & Workout Tracking Platform
+<h1 align="center">
+🏋️ FitTrack
+</h1>
 
-Fit Track is a professional full-stack SaaS-style fitness platform built with **Spring Boot 3, React, and MySQL**. It demonstrates internship-ready backend engineering: layered architecture, JWT security, DTOs, validation, exception handling, pagination, sorting, role-based authorization, Docker, and API documentation.
+<h3 align="center">
+A Production-Style Full Stack Fitness Tracking & Recovery Platform
+</h3>
 
-> Branding note: no image logo was attached in this chat, so the app includes a premium inline SVG/wordmark logo. Replace `frontend/src/components/Logo.jsx` if you want to use your own logo asset.
+<p align="center">
 
-## 1. Complete Folder Structure
+Built with <strong>Spring Boot 3</strong>, <strong>React</strong>, <strong>MySQL</strong>, <strong>JWT Authentication</strong>, and <strong>Docker</strong>
 
-```text
+Designed to demonstrate real-world backend architecture, secure authentication, REST API design, and modern full-stack development practices.
+
+</p>
+
+---
+
+# 📖 Overview
+
+FitTrack is a professional SaaS-inspired fitness platform that allows users to manage workouts, monitor recovery, calculate readiness scores, and visualize fitness progress through an interactive dashboard.
+
+Unlike a basic CRUD project, FitTrack focuses on **clean architecture**, **secure authentication**, **production-ready backend practices**, and **scalable system design**.
+
+The project was built to simulate how modern fitness applications organize backend services, business logic, database relationships, and frontend interactions.
+
+---
+
+# ✨ Features
+
+## 🔐 Authentication & Security
+
+- JWT Authentication
+- BCrypt Password Encryption
+- Spring Security
+- Stateless Authentication
+- Protected REST APIs
+- Role-Based Authorization (User/Admin)
+
+---
+
+## 👤 User Management
+
+- User Registration
+- Secure Login
+- User Profile
+- Password Update
+- Personal Fitness Goals
+
+---
+
+## 🏋️ Workout Management
+
+- Create Workouts
+- Update Workouts
+- Delete Workouts
+- Workout Categories
+- Workout History
+- Calories Tracking
+- Workout Duration
+- Intensity Levels
+
+---
+
+## ❤️ Recovery Tracking
+
+Track important recovery metrics including:
+
+- Sleep Hours
+- Sleep Quality
+- Stress Level
+- Muscle Soreness
+
+---
+
+## ⚡ Readiness Engine
+
+A custom recovery algorithm calculates a daily readiness score based on:
+
+- Sleep
+- Stress
+- Recovery
+- Training Load
+
+The readiness score provides recommendations such as:
+
+- Recovery Day
+- Moderate Workout
+- High Intensity Training
+
+---
+
+## 📊 Dashboard
+
+Interactive dashboard with:
+
+- Total Workouts
+- Weekly Activity
+- Recovery Trends
+- Readiness Score
+- Calories Burned
+- Workout Analytics
+
+---
+
+## 👨‍💼 Admin Features
+
+- Manage Users
+- Workout Categories
+- Platform Statistics
+- User Monitoring
+
+---
+
+# 🏗️ Architecture
+
+The backend follows a clean layered architecture.
+
+```
+Client (React)
+
+        │
+
+REST API
+
+        │
+
+Controllers
+
+        │
+
+Services
+
+        │
+
+Repositories
+
+        │
+
+MySQL Database
+```
+
+Project follows separation of concerns:
+
+- Controller Layer
+- Service Layer
+- Repository Layer
+- DTO Layer
+- Security Layer
+- Exception Handling Layer
+
+---
+
+# 🛠️ Tech Stack
+
+## Backend
+
+- Java 17
+- Spring Boot 3
+- Spring Security
+- Spring Data JPA
+- Hibernate
+- JWT Authentication
+- Maven
+
+---
+
+## Frontend
+
+- React
+- React Router
+- Axios
+- Tailwind CSS
+- Vite
+- Recharts
+
+---
+
+## Database
+
+- MySQL
+
+---
+
+## DevOps
+
+- Docker
+- Docker Compose
+- Render Deployment
+
+---
+
+## Documentation
+
+- Swagger / OpenAPI
+
+---
+
+# 📂 Project Structure
+
+```
 fit-track/
+
+│
+
 ├── backend/
-│   ├── Dockerfile
-│   ├── pom.xml
-│   └── src/main/
-│       ├── java/com/fittrack/
-│       │   ├── FitTrackApplication.java
-│       │   ├── config/             # CORS, OpenAPI, data seeding
-│       │   ├── controller/         # Thin REST controllers
-│       │   ├── dto/                # Request/response DTOs
-│       │   ├── entity/             # JPA entities
-│       │   ├── enums/              # Role/intensity enums
-│       │   ├── exception/          # Global exception handling
-│       │   ├── repository/         # Spring Data JPA repositories
-│       │   ├── security/           # JWT + Spring Security
-│       │   └── service/            # Business logic
-│       └── resources/
-│           └── application.yml
+
+│   ├── config
+
+│   ├── controller
+
+│   ├── dto
+
+│   ├── entity
+
+│   ├── enums
+
+│   ├── exception
+
+│   ├── repository
+
+│   ├── security
+
+│   ├── service
+
+│   └── resources
+
+│
+
 ├── frontend/
-│   ├── Dockerfile
-│   ├── index.html
-│   ├── package.json
-│   ├── vite.config.js
-│   ├── tailwind.config.js
-│   └── src/
-│       ├── api/axios.js
-│       ├── components/             # Layout, logo, route guards, UI cards
-│       ├── context/AuthContext.jsx
-│       ├── pages/                  # Landing, auth, dashboards, profile
-│       └── main.jsx
+
+│   ├── api
+
+│   ├── components
+
+│   ├── context
+
+│   ├── pages
+
+│   └── assets
+
+│
+
 ├── docker-compose.yml
-├── .env.example
-└── RENDER_DEPLOYMENT.md
+
+├── README.md
+
+└── .env.example
 ```
 
-## 2. Database Schema
+---
 
-### `users`
-| Column | Type | Notes |
-|---|---|---|
-| id | BIGINT PK | Auto increment |
-| name | VARCHAR | Required |
-| email | VARCHAR UNIQUE | Login username |
-| password | VARCHAR | BCrypt hash |
-| role | ENUM(USER, ADMIN) | Authorization |
-| height_cm, weight_kg | DOUBLE | Profile metrics |
-| goal | VARCHAR | User goal |
-| created_at, updated_at | DATETIME | Auditing |
+# 🗄️ Database Design
 
-### `workout_categories`
-| Column | Type | Notes |
-|---|---|---|
-| id | BIGINT PK | Auto increment |
-| name | VARCHAR UNIQUE | Strength, Cardio, Mobility |
-| description | VARCHAR | Optional |
-| active | BOOLEAN | Admin controlled |
-| created_at, updated_at | DATETIME | Auditing |
+The application uses relational database modeling.
 
-### `workouts`
-| Column | Type | Notes |
-|---|---|---|
-| id | BIGINT PK | Auto increment |
-| user_id | FK users.id | Owner |
-| category_id | FK workout_categories.id | Optional category |
-| title | VARCHAR | Workout name |
-| intensity | ENUM(LOW, MODERATE, HIGH) | Training load |
-| duration_minutes | INT | Planned/actual duration |
-| calories_burned | INT | Estimated burn |
-| workout_date | DATE | History date |
-| notes | TEXT | Optional |
-| created_at, updated_at | DATETIME | Auditing |
+### Main Tables
 
-### `workout_sessions`
-| Column | Type | Notes |
-|---|---|---|
-| id | BIGINT PK | Auto increment |
-| user_id | FK users.id | Owner |
-| workout_id | FK workouts.id | Source workout |
-| started_at, ended_at | DATETIME | Session window |
-| perceived_exertion | INT | 1-10 RPE |
-| notes | TEXT | Optional |
-| created_at, updated_at | DATETIME | Auditing |
+- Users
+- Workout Categories
+- Workouts
+- Workout Sessions
+- Recovery Logs
+- Readiness Scores
 
-### `recovery_logs`
-| Column | Type | Notes |
-|---|---|---|
-| id | BIGINT PK | Auto increment |
-| user_id | FK users.id | Owner |
-| log_date | DATE | One per user/date |
-| sleep_hours | DOUBLE | 0-14 |
-| sleep_quality | INT | 1-10 |
-| stress_level | INT | 1-10 |
-| muscle_soreness | INT | 1-10 |
-| recovery_score | INT | 0-100 generated |
-| created_at, updated_at | DATETIME | Auditing |
+Relationships are managed using Hibernate/JPA with proper foreign key mappings.
 
-### `readiness_scores`
-| Column | Type | Notes |
-|---|---|---|
-| id | BIGINT PK | Auto increment |
-| user_id | FK users.id | Owner |
-| score_date | DATE | One per user/date |
-| score | INT | 0-100 generated |
-| recommendation | VARCHAR | Training guidance |
-| created_at, updated_at | DATETIME | Auditing |
+---
 
-## 3. Architecture Decisions
+# 🔒 Security
 
-- **Layered architecture:** Controller → Service → Repository. Controllers only validate inputs and delegate.
-- **DTO pattern:** Entities are not exposed directly; request/response contracts stay stable.
-- **JWT security:** Stateless REST API, BCrypt passwords, role-based route protection.
-- **JPA relationships:** Proper `@ManyToOne` mappings from domain records to the owning user.
-- **Exception handling:** `@RestControllerAdvice` returns consistent `ApiResponse` errors.
-- **Pagination/sorting/search:** Workout and admin user lists use `Pageable` and query methods.
-- **Readiness engine:** Simple, explainable formula using sleep, stress, soreness, and recent training load — realistic for a student project and easy to discuss in interviews.
-- **Frontend:** Premium SaaS UI using Tailwind, React Router, Axios interceptors, responsive dark mode layout, Recharts analytics.
+Implemented using Spring Security.
 
-## 4. Quick Start
+✔ JWT Authentication
 
-### Prerequisites
-- Java 17+
-- Maven 3.9+
-- Node.js 18+
-- MySQL 8+
-- Docker Desktop optional
+✔ BCrypt Password Encoding
 
-### Run with Docker Compose
+✔ Stateless Authentication
+
+✔ Protected REST Endpoints
+
+✔ Role-Based Authorization
+
+---
+
+# 🚀 REST API
+
+## Authentication
+
+```
+POST /api/auth/register
+
+POST /api/auth/login
+```
+
+---
+
+## Users
+
+```
+GET /api/users/me
+
+PUT /api/users/me
+
+PUT /api/users/me/password
+```
+
+---
+
+## Workouts
+
+```
+POST /api/workouts
+
+GET /api/workouts
+
+PUT /api/workouts/{id}
+
+DELETE /api/workouts/{id}
+```
+
+---
+
+## Recovery
+
+```
+POST /api/recovery
+
+GET /api/recovery
+```
+
+---
+
+## Readiness
+
+```
+GET /api/readiness/today
+```
+
+---
+
+## Dashboard
+
+```
+GET /api/dashboard/summary
+
+GET /api/dashboard/trends
+```
+
+---
+
+## Admin
+
+```
+GET /api/admin/users
+
+GET /api/admin/statistics
+
+POST /api/admin/categories
+
+PUT /api/admin/categories/{id}
+
+DELETE /api/admin/categories/{id}
+```
+
+---
+
+# ⚙️ Running Locally
+
+## 1 Clone Repository
+
 ```bash
-cp .env.example .env
-docker compose up --build
+git clone https://github.com/yourusername/fit-track.git
 ```
 
-- Frontend: http://localhost:5173
-- Backend API: http://localhost:8080
-- Swagger UI: http://localhost:8080/swagger-ui/index.html
+---
 
-### Run Locally Without Docker
+## 2 Backend
 
-1. Create MySQL database:
-```sql
-CREATE DATABASE fittrack_db;
-```
-
-2. Backend:
 ```bash
 cd backend
-# Set DB env vars if needed, or edit src/main/resources/application.yml
+
 mvn spring-boot:run
 ```
 
-3. Frontend:
+---
+
+## 3 Frontend
+
 ```bash
 cd frontend
+
 npm install
+
 npm run dev
 ```
 
-## Demo Accounts
-Seeded automatically on backend startup:
+---
 
-| Role | Email | Password |
-|---|---|---|
-| Admin | admin@fittrack.dev | Admin@123 |
-| User | user@fittrack.dev | User@123 |
+## 4 Using Docker
 
-## API Response Format
-```json
-{
-  "success": true,
-  "message": "Operation successful",
-  "data": {}
-}
+```bash
+docker compose up --build
 ```
 
-## Main API Endpoints
+---
 
-### Auth
-- `POST /api/auth/register`
-- `POST /api/auth/login`
+# 🌐 Default URLs
 
-### User
-- `GET /api/users/me`
-- `PUT /api/users/me`
-- `PUT /api/users/me/password`
+| Service | URL |
+|----------|-----|
+| React | http://localhost:5173 |
+| Spring Boot | http://localhost:8080 |
+| Swagger UI | http://localhost:8080/swagger-ui/index.html |
 
-### Workouts
-- `POST /api/workouts`
-- `GET /api/workouts?page=0&size=10&sort=workoutDate,desc&search=push`
-- `PUT /api/workouts/{id}`
-- `DELETE /api/workouts/{id}`
+---
 
-### Recovery & Readiness
-- `POST /api/recovery`
-- `GET /api/recovery`
-- `GET /api/readiness/today`
+# 📚 Key Backend Concepts Demonstrated
 
-### Dashboard
-- `GET /api/dashboard/summary`
-- `GET /api/dashboard/trends`
+- Layered Architecture
 
-### Admin
-- `GET /api/admin/users?search=demo&page=0&size=10`
-- `DELETE /api/admin/users/{id}`
-- `GET /api/admin/statistics`
-- `POST /api/admin/categories`
-- `PUT /api/admin/categories/{id}`
-- `DELETE /api/admin/categories/{id}`
+- RESTful API Design
 
-## Interview Talking Points
+- DTO Pattern
 
-- Why JWT stateless auth fits REST APIs.
-- Why services own business logic and controllers stay thin.
-- How DTOs prevent overexposing database structure.
-- How readiness score is calculated and can evolve into ML later.
-- How pagination and search keep APIs scalable.
-- How Docker Compose makes the project easy for reviewers to run.
+- Repository Pattern
+
+- Dependency Injection
+
+- JWT Authentication
+
+- Spring Security
+
+- Exception Handling
+
+- Validation
+
+- Pagination
+
+- Sorting
+
+- Entity Relationships
+
+- Docker Deployment
+
+- Clean Code Principles
+
+---
+
+# 💡 Why This Project?
+
+FitTrack was built to simulate how production backend systems are structured rather than focusing only on CRUD operations.
+
+It demonstrates:
+
+- Scalable architecture
+- Secure authentication
+- Maintainable code organization
+- Database modeling
+- REST API best practices
+- Full-stack integration
+- Dockerized deployment
+
+---
+
+# 🎯 Future Improvements
+
+- Email Verification
+
+- Password Reset
+
+- OAuth Login
+
+- Notifications
+
+- Exercise Library
+
+- AI Workout Recommendations
+
+- Nutrition Tracking
+
+- Wearable Device Integration
+
+- Cloud Storage
+
+- Kubernetes Deployment
+
+---
+
+# 👨‍💻 Author
+
+### Vinamra Gupta
+
+Backend Developer
+
+📧 Email
+
+**vinamra.gupta.dev@gmail.com**
+
+💼 LinkedIn
+
+**https://www.linkedin.com/in/vinamra-gupta-0aa4b4375**
+
+GitHub
+
+**https://github.com/VinamraGupta01**
+
+---
+
+# ⭐ Support
+
+If you found this project useful, consider giving it a **⭐ Star** on GitHub.
+
+It motivates continued development and helps others discover the project.
+
+---
+
+<h3 align="center">
+Built with ❤️ using Spring Boot, React, MySQL & Docker
+</h3>
