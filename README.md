@@ -1,4 +1,4 @@
-<img width="1892" height="1086" alt="image" src="https://github.com/user-attachments/assets/0a896c00-50a9-4aaf-9b70-7c227ad7e714" /><h1 align="center">
+<h1 align="center">
 🏋️ FitTrack
 </h1>
 
@@ -159,6 +159,8 @@ Project follows separation of concerns:
 
 # 📸 Application Preview
 
+<img width="1892" height="1086" alt="image" src="https://github.com/user-attachments/assets/0a896c00-50a9-4aaf-9b70-7c227ad7e714" />
+
 ## Dashboard
 
 <img width="1895" height="1085" alt="image" src="https://github.com/user-attachments/assets/48b6f2f2-623e-41d9-9289-02af2ee6ff6f" />
@@ -173,7 +175,7 @@ Project follows separation of concerns:
 
 ## Recovery Analytics
 
-![Uploading image.png…](
+<img width="1892" height="1086" alt="Screenshot 2026-06-26 134928" src="https://github.com/user-attachments/assets/68ee9317-03bb-4191-85e6-49618a53fea3" />
 
 ---
 
