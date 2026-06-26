@@ -1,4 +1,4 @@
-<h1 align="center">
+<img width="1892" height="1086" alt="image" src="https://github.com/user-attachments/assets/0a896c00-50a9-4aaf-9b70-7c227ad7e714" /><h1 align="center">
 🏋️ FitTrack
 </h1>
 
@@ -90,6 +90,12 @@ The readiness score provides recommendations such as:
 
 ---
 
+## 🌐 Live Demo
+
+🔗 https://fit-track-frontend-oirr.onrender.com/
+
+---
+
 ## 📊 Dashboard
 
 Interactive dashboard with:
@@ -148,6 +154,26 @@ Project follows separation of concerns:
 - DTO Layer
 - Security Layer
 - Exception Handling Layer
+
+---
+
+# 📸 Application Preview
+
+## Dashboard
+
+<img width="1895" height="1085" alt="image" src="https://github.com/user-attachments/assets/48b6f2f2-623e-41d9-9289-02af2ee6ff6f" />
+
+---
+
+## Workout Management
+
+<img width="1887" height="1081" alt="image" src="https://github.com/user-attachments/assets/08f4aab8-4770-482f-b486-2519f92b154c" />
+
+---
+
+## Recovery Analytics
+
+![Uploading image.png…](
 
 ---
 
